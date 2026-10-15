@@ -42,7 +42,7 @@ function getVisibleTasks() {
   if (currentFilter === "active") {
     return tasks.filter((t) => !t.done);
   }
-  if (currentFilter === "completed") {
+  if (currentFilter === "done") {
     return tasks.filter((t) => t.done);
   }
   return tasks;
@@ -54,6 +54,7 @@ function updateCounter() {
 }
 
 function render() {
+  list.innerHTML = "";
   const visible = getVisibleTasks();
   for (let i = 0; i < visible.length; i++) {
     const task = visible[i];
